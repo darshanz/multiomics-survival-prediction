@@ -6,7 +6,7 @@
 
 ## Project Overview
 
-This project implements a comprehensive radiogenomics pipeline for predicting overall survival in patients with Head and Neck Squamous Cell Carcinoma (HNSCC). The analysis integrates multi-modal data including clinical variables, gene expression profiles, and quantitative imaging features extracted from CT scans to build robust prognostic models.
+Predicting survival in head and neck cancer patients using clinical data, genetic information, and CT scan analysis. Combines multiple data types to build better prognostic models.
 
 ## Objectives
 
