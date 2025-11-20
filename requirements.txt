@@ -1,4 +1,7 @@
+lifelines==0.30.0
 matplotlib==3.7.2
 missingno==0.5.2
+myworkspaceutils==0.1.0
 numpy==1.24.3
 pandas==2.3.3
+seaborn==0.13.2

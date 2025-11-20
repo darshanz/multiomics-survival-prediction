@@ -30,7 +30,7 @@ During exploratory data analysis, we identified patient ID misalignment across c
 
 ## Step 2: Survival Analysis
 
-### Non Parametric Analysis
+### 2.1.  Non Parametric Analysis
 
 ##### Censoring Information
 
@@ -48,7 +48,7 @@ Event Distribution:
 - **Exceptional Long-term Survivors**: ~40% survival at 11+ years is notable for advanced HNSCC
  
 
-### CoxPH with individual modalities 
+### 2.2. Semi-parametric Analysis (CoxPhFitter) with individual modalities 
 
 
 ![alt text](images/coxph_plot_three_modalities.png)
@@ -89,8 +89,27 @@ Event Distribution:
 - **Radiomics**: Reasonable stability with one significant finding  
 - **Genomics**: Statistical instability due to high dimensionality and limited events
 
- 
+  
+### 2.3. Semi-parametric Analysis (CoxPhFitter) multiomics (all three modalities combined)
 
+
+![alt text](images/coxph_multiomics.png)
+
+
+
+| Modality | Feature | Combined Model HR | Individual Model HR | Change | Significance | Key Insight |
+|----------|---------|------------------|---------------------|---------|--------------|------------|
+| **Clinical** | Treatment Response | 0.48 | 0.40 | Weaker | p = 0.001 | Still significant but effect reduced |
+| **Clinical** | Recurrence/Metastasis | 1.21 | 1.34 | Weaker | p = 0.387 | Lost significance in combined model |
+| **Radiomics** | RunLengthNonUniformity | 64.57 | 8.77 | **7.4x Stronger** | p = 0.006 | Dominant predictor in combined model |
+| **Genomics** | ANXA8 | 152.54 | 56.38 | More Extreme | p = 0.232 | Still unreliable, massive CIs |
+| **Genomics** | All Genes | Wide CIs | Wide CIs | No Improvement | All p > 0.15 | Persistent overfitting issues |
+
+## Summary (when 3 modalities combined)
+- **Radiomics emerged** as the most powerful modality when features compete
+- **Clinical features weakened** as they share predictive power with radiomics  
+- **Genomics remained unstable** despite multi-modal integration
+- **RunLengthNonUniformity** appears to capture fundamental tumor aggression
 
 
 
